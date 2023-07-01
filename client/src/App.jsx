@@ -11,6 +11,7 @@
 // These improvements aim to enhance the functionality and readability of the code.
 
 import { useState, useEffect } from "react";
+import { Footer } from "./components/Footer.component";
 import "./App.css";
 // https://www.instagram.com/reel/CslsrulAnfh/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==
 function App() {
@@ -57,19 +58,24 @@ function App() {
   };
   return (
     <>
-      <div>
+      <div className="container">
         <h1>Instagram Reels Downloader</h1>
         <form onSubmit={downloadInstaVideos}>
           <input
             type="text"
             value={link}
             onChange={(e) => setLink(e.target.value)}
-            placeholder="Enter Instagram Reel URL"
+            placeholder="eg.. https://www.instagram.com/reel/CtyDKecsDEq/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
+            className="input"
           />
-          <button type="submit">Download</button>
+          <button type="submit" className="btn-block">
+            Download
+          </button>
         </form>
+        <div id="show">{errorMessage}</div>
       </div>
-      <div id="show">{errorMessage}</div>
+
+      <Footer />
     </>
   );
 }
